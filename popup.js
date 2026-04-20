@@ -1,12 +1,18 @@
+// Show preview of URLs when popup loads
+window.addEventListener('load', async () => {
+  const tabs = await chrome.tabs.query({ currentWindow: true });
+  const validUrls = tabs.filter(t => t.url && (t.url.startsWith('http://') || t.url.startsWith('https://')));
+  const count = document.getElementById('count');
+  count.textContent = `Ready to copy ${validUrls.length} link${validUrls.length !== 1 ? 's' : ''}`;
+});
+
 document.getElementById('copyBtn').addEventListener('click', async () => {
   const button = document.getElementById('copyBtn');
   const status = document.getElementById('status');
-  const count = document.getElementById('count');
 
   button.disabled = true;
   status.className = '';
   status.textContent = '';
-  count.textContent = '';
 
   try {
     // Get all tabs in the current window
@@ -29,8 +35,7 @@ document.getElementById('copyBtn').addEventListener('click', async () => {
     await navigator.clipboard.writeText(urls);
 
     status.className = 'success';
-    status.textContent = '✓ Copied to clipboard!';
-    count.textContent = `${tabs.filter(t => t.url && (t.url.startsWith('http://') || t.url.startsWith('https://'))).length} URLs`;
+    status.textContent = 'Copied to clipboard!';
   } catch (error) {
     status.className = 'error';
     status.textContent = `Error: ${error.message}`;
