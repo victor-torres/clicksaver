@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 300px;
+      padding: 12px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f5f5;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    button:active {
+      background: #3d8b40;
+    }
+    #status {
+      margin-top: 10px;
+      padding: 8px;
+      text-align: center;
+      font-size: 13px;
+      border-radius: 4px;
+      display: none;
+    }
+    #status.success {
+      background: #d4edda;
+      color: #155724;
+      display: block;
+    }
+    #status.error {
+      background: #f8d7da;
+      color: #721c24;
+      display: block;
+    }
+    #count {
+      font-size: 12px;
+      color: #666;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <button id="copyBtn">Copy All Tab URLs</button>
+  <div id="status"></div>
+  <div id="count"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

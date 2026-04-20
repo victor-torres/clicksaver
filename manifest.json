@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "ClickSaver",
+  "version": "1.0.0",
+  "description": "Copy all open tab URLs to clipboard",
+  "permissions": ["tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Copy all tab URLs"
+  },
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  }
+}
